@@ -1,0 +1,27 @@
+# Node modules
+/blogger-frontend/node_modules
+/blogger-frontend/.angular
+
+# Compiled output
+/blogger-frontend/dist
+/blogger-frontend/tmp
+
+# Maven build files
+/blogger-backend/target/
+*.jar
+*.war
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# Environment specific
+/blogger-backend/src/main/resources/application-prod.properties
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
