@@ -1,0 +1,24 @@
+mat-card {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 20px;
+    color:white;
+  }
+  
+  .full-width {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .submit-button {
+    width: 100%;
+  }
+  
+  a {
+    color: #3f51b5;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }

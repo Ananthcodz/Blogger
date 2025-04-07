@@ -17,7 +17,7 @@
 *.iml
 
 # Environment specific
-/blogger-backend/src/main/resources/application-prod.properties
+/blogger/src/main/resources/application-prod.properties
 
 # Logs
 *.log

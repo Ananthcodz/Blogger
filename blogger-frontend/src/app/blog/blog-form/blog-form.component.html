@@ -1,0 +1,41 @@
+<div class="form-container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ isEditMode ? 'Edit Blog' : 'Create New Blog' }}</mat-card-title>
+      </mat-card-header>
+      <br>
+      <mat-card-content>
+        <div *ngIf="isLoading" class="loading-container">
+          <mat-spinner diameter="40"></mat-spinner>
+        </div>
+        
+        <form *ngIf="!isLoading" [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" placeholder="Enter blog title">
+            <mat-error *ngIf="blogForm.get('title')?.hasError('required')">Title is required</mat-error>
+            <mat-error *ngIf="blogForm.get('title')?.hasError('maxlength')">Title cannot exceed 100 characters</mat-error>
+          </mat-form-field>
+          
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Content</mat-label>
+            <textarea matInput formControlName="content" placeholder="Write your blog content here" rows="15"></textarea>
+            <mat-error *ngIf="blogForm.get('content')?.hasError('required')">Content is required</mat-error>
+            <mat-error *ngIf="blogForm.get('content')?.hasError('minlength')">Content must be at least 10 characters</mat-error>
+          </mat-form-field>
+          
+          <div class="form-actions">
+            <button mat-button type="button" routerLink="/blogs" [disabled]="isSubmitting">Cancel</button>
+            <button 
+              mat-raised-button 
+              color="primary" 
+              type="submit" 
+              [disabled]="blogForm.invalid || isSubmitting">
+              <span *ngIf="isSubmitting">Saving...</span>
+              <span *ngIf="!isSubmitting">{{ isEditMode ? 'Update' : 'Publish' }}</span>
+            </button>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>

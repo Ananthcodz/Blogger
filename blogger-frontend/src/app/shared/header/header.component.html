@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+    <span routerLink="/" class="logo">Blogger</span>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/blogs">All Blogs</button>
+    <ng-container *ngIf="!isLoggedIn">
+      <button mat-button routerLink="/auth/login">Login</button>
+      <button mat-button routerLink="/auth/signup">Sign Up</button>
+    </ng-container>
+    <ng-container *ngIf="isLoggedIn">
+      <button mat-button routerLink="/my-blogs">My Blogs</button>
+      <button mat-button routerLink="/blogs/create">Create Blog</button>
+      <span class="user-email">{{ email }}</span>
+      <button mat-button (click)="logout()">Logout</button>
+    </ng-container>
+    <button mat-icon-button class="menu-button" [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/blogs">All Blogs</button>
+      <ng-container *ngIf="!isLoggedIn">
+        <button mat-menu-item routerLink="/auth/login">Login</button>
+        <button mat-menu-item routerLink="/auth/signup">Sign Up</button>
+      </ng-container>
+      <ng-container *ngIf="isLoggedIn">
+        <button mat-menu-item routerLink="/my-blogs">My Blogs</button>
+        <button mat-menu-item routerLink="/blogs/create">Create Blog</button>
+        <button mat-menu-item (click)="logout()">Logout</button>
+      </ng-container>
+    </mat-menu>
+  </mat-toolbar>

@@ -1,0 +1,20 @@
+.blog-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  mat-card {
+    margin-bottom: 20px;
+    padding: 20px;
+    color:white;
+  }
+  
+  .blog-content {
+    white-space: pre-line;
+    line-height: 1.6;
+    margin-top: 20px;
+  }
+  
+  .back-link {
+    margin-top: 20px;
+  }
